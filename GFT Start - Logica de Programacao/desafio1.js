@@ -21,25 +21,27 @@ let nivelHeroi
 
 rl.question('Digite o nome do herói: ', (nomeHeroi) => {
     rl.question('Digite a quantidade de experiência do herói: ', (quantidadeXp) => {
-        quantidadeXp = parseInt(quantidadeXp);
+        quantidadeXp = parseInt(quantidadeXp)
 
-        if (quantidadeXp < 1000) {
-            nivelHeroi = 'Ferro'
-        } else if (quantidadeXp >= 1001 && quantidadeXp <= 2000) {
-            nivelHeroi = 'Bronze'
-        } else if (quantidadeXp >= 2001 && quantidadeXp <= 5000) {
-            nivelHeroi = 'Prata Ouro'
-        } else if (quantidadeXp >= 5001 && quantidadeXp <= 8000) {
-            nivelHeroi = 'Platina Diamante'
-        } else if (quantidadeXp >= 8001 && quantidadeXp <= 9000) {
-            nivelHeroi = 'Ascendente'
-        } else if (quantidadeXp >= 9001 && quantidadeXp <= 10000) {
-            nivelHeroi = 'Imortal'
-        } else {
-            nivelHeroi = 'Radiante'
+    function nivelHeroi() {
+        switch (true) {
+            case quantidadeXp < 1000:
+                return 'Ferro'
+            case quantidadeXp <= 2000:
+                return 'Bronze'
+            case quantidadeXp <= 5000:
+                return 'Prata Ouro'
+            case quantidadeXp <= 8000:
+                return 'Platina Diamante'
+            case quantidadeXp <= 9000:
+                return 'Ascendente'
+            case quantidadeXp <= 10000:
+                return 'Imortal'
+            default:
+                return 'Radiante'
+            }
         }
-
-        console.log(`O Herói de nome ${nomeHeroi} está no nível de ${nivelHeroi}`)
+        console.log(`O Herói de nome ${nomeHeroi} está no nível de ${nivelHeroi()}`)
 
         rl.close()
     })
