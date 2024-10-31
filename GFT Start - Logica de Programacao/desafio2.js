@@ -39,34 +39,31 @@ rl.question('Digite a quantidade de vitórias do herói: ', (vitorias) => {
         
         function calcularRank(vitorias, derrotas) {
             let saldoVitorias = vitorias - derrotas
-            let nivelHeroi
-
-            switch (true) {
-                case saldoVitorias < 10:
-                    nivelHeroi = 'Ferro'
-                    break
-                case saldoVitorias < 21:
-                    nivelHeroi = 'Bronze'
-                    break
-                case saldoVitorias < 51:
-                    nivelHeroi = 'Prata'
-                    break
-                case saldoVitorias < 81:
-                    nivelHeroi = 'Ouro'
-                    break
-                case saldoVitorias < 91:
-                    nivelHeroi = 'Diamante'
-                    break
-                case saldoVitorias < 101:
-                    nivelHeroi = 'Lendário'
-                    break
-                default:
-                    nivelHeroi = 'Imortal'
-            }
-            return `O herói tem de saldo de ${saldoVitorias} está no nível de ${nivelHeroi}`
+            return saldoVitorias
         }
 
-        console.log(calcularRank(vitorias, derrotas))
+        function calcularNivel(saldoVitorias){
+            switch (true) {
+                case saldoVitorias < 10:
+                    return 'Ferro'
+                case saldoVitorias < 21:
+                    return 'Bronze'
+                case saldoVitorias < 51:
+                    return 'Prata'
+                case saldoVitorias < 81:
+                    return 'Ouro'
+                case saldoVitorias < 91:
+                    return 'Diamante'
+                case saldoVitorias < 101:
+                    return 'Lendário'
+                default:
+                    return 'Imortal'
+            }
+        }
+
+        const saldoVitorias = calcularRank(vitorias, derrotas)
+        const nivelHeroi = calcularNivel(saldoVitorias)
+        console.log(`O herói tem de saldo de ${saldoVitorias} está no nível de ${nivelHeroi}`)
 
         rl.close()
     })
